@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.pablocrespoabogado.com.ar/sitemap.xml
+Sitemap: https://drpablocrespo.com/sitemap.xml
