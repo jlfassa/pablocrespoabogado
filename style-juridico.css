@@ -1460,6 +1460,27 @@ section[id],
   color: rgba(250, 248, 243, 0.82);
 }
 
+/* Título, subtítulo y texto centrados (a diferencia del layout
+   a dos columnas que usa MÉTODO DE TRABAJO con las mismas clases) */
+
+#amparos-salud .about-grid {
+  grid-template-columns: 1fr;
+
+  justify-items: center;
+
+  text-align: center;
+}
+
+#amparos-salud .about-title h2 {
+  max-width: 780px;
+}
+
+#amparos-salud .about-content {
+  padding-top: 0;
+
+  max-width: 720px;
+}
+
 /* =========================================================
    SERVICES
 ========================================================= */
