@@ -1978,31 +1978,26 @@ section[id],
 
   justify-content: center;
 
-  border-radius: 50%;
-
-  background: var(--green);
-
   text-decoration: none;
 
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28);
-
-  transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .wa-icon {
-  width: 26px;
-  height: 26px;
+  width: 52px;
+  height: 52px;
+
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.35));
+
+  transition: filter 0.3s ease;
 }
 
 .wa-float:hover {
   transform: translateY(-4px) scale(1.05);
+}
 
-  background: #277749;
-
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34);
+.wa-float:hover .wa-icon {
+  filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.4));
 }
 
 /* =========================================================
@@ -2039,7 +2034,8 @@ section[id],
   .service-panel,
   .footer-map-link,
   .footer-studio-link,
-  .wa-float {
+  .wa-float,
+  .wa-icon {
     transition-duration: 0.2s !important;
   }
 }
