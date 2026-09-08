@@ -156,7 +156,7 @@ section[id],
   display: grid;
   place-items: center;
 
-  background: var(--navy-950);
+  background: var(--white);
 
   transition:
     opacity 0.8s var(--ease),
@@ -176,12 +176,8 @@ section[id],
 }
 
 .preloader-mark {
-  color: var(--cream);
-
-  font-family: var(--font-display);
-  font-size: 4rem;
-
-  letter-spacing: 0.15em;
+  width: 130px;
+  height: auto;
 }
 
 .preloader-line {
@@ -285,8 +281,23 @@ section[id],
   align-items: center;
 }
 
-.header-spacer {
+.header-logo {
   grid-column: 1;
+
+  justify-self: start;
+
+  display: inline-flex;
+
+  transition: opacity 0.3s ease;
+}
+
+.header-logo img {
+  width: 40px;
+  height: auto;
+}
+
+.header-logo:hover {
+  opacity: 0.8;
 }
 
 .header-name {
