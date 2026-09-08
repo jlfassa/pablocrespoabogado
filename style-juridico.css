@@ -292,7 +292,7 @@ section[id],
 }
 
 .header-logo img {
-  width: 40px;
+  width: 58px;
   height: auto;
 }
 
@@ -2247,6 +2247,10 @@ section[id],
 ========================================================= */
 
 @media (max-width: 480px) {
+  .header-logo img {
+    width: 42px;
+  }
+
   .header-name {
     font-size: clamp(1.55rem, 5.2vw, 1.9rem);
 

@@ -63,9 +63,11 @@ window.addEventListener("load", () => {
 
   if (!preloader) return;
 
+  /* Se sostiene un poco más para que el logo alcance a leerse
+     bien antes de empezar el fade (antes eran 400ms). */
   setTimeout(() => {
     preloader.classList.add("loaded");
-  }, 400);
+  }, 1600);
 });
 
 
