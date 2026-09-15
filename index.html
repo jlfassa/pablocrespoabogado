@@ -71,7 +71,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="./style-juridico.css?v=20260908c" />
+    <link rel="stylesheet" href="./style-juridico.css?v=20260915" />
 
     <!-- Precarga de la imagen del primer slide del hero (LCP) -->
     <link rel="preload" as="image" href="img/hero_1.jpg" fetchpriority="high" />
@@ -121,6 +121,18 @@
               {
                 "@type": "Place",
                 "name": "Zona Norte del Gran Buenos Aires"
+              },
+              {
+                "@type": "City",
+                "name": "Capital Federal"
+              },
+              {
+                "@type": "City",
+                "name": "Trelew"
+              },
+              {
+                "@type": "State",
+                "name": "Chubut"
               }
             ],
             "priceRange": "$$",
@@ -131,6 +143,44 @@
               "Violencia de género y familiar",
               "Amparos de salud"
             ]
+          },
+          {
+            "@type": "LegalService",
+            "@id": "https://drpablocrespo.com/#office-caba",
+            "name": "Pablo Luis Crespo - Abogado (CABA)",
+            "branchOf": { "@id": "https://drpablocrespo.com/#attorney" },
+            "telephone": "+5492804607019",
+            "priceRange": "$$",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Corrientes 1464, Of. 302",
+              "addressLocality": "Capital Federal",
+              "addressRegion": "Buenos Aires",
+              "addressCountry": "AR"
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Capital Federal"
+            }
+          },
+          {
+            "@type": "LegalService",
+            "@id": "https://drpablocrespo.com/#office-trelew",
+            "name": "Pablo Luis Crespo - Abogado (Trelew)",
+            "branchOf": { "@id": "https://drpablocrespo.com/#attorney" },
+            "telephone": "+5492804607019",
+            "priceRange": "$$",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "La Madrid 1190",
+              "addressLocality": "Trelew",
+              "addressRegion": "Chubut",
+              "addressCountry": "AR"
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Trelew"
+            }
           },
           {
             "@type": "WebSite",
@@ -814,16 +864,41 @@
         </div>
 
         <div class="footer-contact">
-          <a
-            href="https://maps.google.com/?q=Ituzaing%C3%B3+522+San+Isidro+Buenos+Aires"
-            target="_blank"
-            rel="noopener"
-            class="footer-map-link"
-          >
-            Ituzaingó 522
-          </a>
+          <div class="footer-address">
+            <span class="footer-address-city">San Isidro</span>
+            <a
+              href="https://maps.google.com/?q=Ituzaing%C3%B3+522+San+Isidro+Buenos+Aires"
+              target="_blank"
+              rel="noopener"
+              class="footer-map-link"
+            >
+              Ituzaingó 522
+            </a>
+          </div>
 
-          <span> San Isidro, Buenos Aires, Argentina </span>
+          <div class="footer-address">
+            <span class="footer-address-city">CABA</span>
+            <a
+              href="https://maps.google.com/?q=Av.+Corrientes+1464+Of.+302+Buenos+Aires"
+              target="_blank"
+              rel="noopener"
+              class="footer-map-link"
+            >
+              Av. Corrientes 1464, Of. 302
+            </a>
+          </div>
+
+          <div class="footer-address">
+            <span class="footer-address-city">Trelew, Chubut</span>
+            <a
+              href="https://maps.google.com/?q=La+Madrid+1190+Trelew+Chubut"
+              target="_blank"
+              rel="noopener"
+              class="footer-map-link"
+            >
+              La Madrid 1190
+            </a>
+          </div>
         </div>
       </div>
 
@@ -855,6 +930,6 @@
     </a>
 
     <!-- JS -->
-    <script src="./script.js?v=20260908c" defer></script>
+    <script src="./script.js?v=20260915" defer></script>
   </body>
 </html>

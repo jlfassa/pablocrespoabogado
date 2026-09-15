@@ -1938,11 +1938,31 @@ section[id],
 
   text-align: right;
 
+  gap: 14px;
+
   color: var(--gray-light);
 
   font-size: 1.25rem;
 
   line-height: 1.6;
+}
+
+.footer-address {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.footer-address-city {
+  color: var(--gold-light);
+
+  font-size: 1.1rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.12em;
+
+  margin-bottom: 2px;
 }
 
 .footer-map-link {
