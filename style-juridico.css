@@ -2257,6 +2257,10 @@ section[id],
     padding: 50px 0 30px;
   }
 
+  .footer-logo {
+    justify-self: center;
+  }
+
   .footer-contact {
     justify-self: center;
 
