@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Página generada por herramientas/generar_servicios.py: no editar a mano -->
+
+    <title>Agendar consulta | Dr. Pablo Luis Crespo</title>
+
+    <meta name="description" content="Reservá tu consulta con el Dr. Pablo Luis Crespo: elegí día y horario, virtual o presencial en CABA." />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#dbe8f3" />
+
+    <link rel="canonical" href="https://drpablocrespo.com/agendar/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:title" content="Agendar consulta | Dr. Pablo Luis Crespo" />
+    <meta property="og:description" content="Reservá tu consulta con el Dr. Pablo Luis Crespo: elegí día y horario, virtual o presencial en CABA." />
+    <meta property="og:image" content="https://drpablocrespo.com/img/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://drpablocrespo.com/agendar/" />
+    <meta property="og:site_name" content="Pablo Luis Crespo - Abogado" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="../img/favicon-32x32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="../img/favicon-16x16.png" type="image/png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="../img/apple-touch-icon.png" sizes="180x180" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Forum&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../style-juridico.css?v=20261008d" />
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  </head>
+
+  <body class="service-page agenda-page">
+    <!-- HEADER -->
+    <header class="header" data-header>
+      <div class="header-inner">
+        <a href="../" class="header-logo" aria-label="MCDV & Asociados - Inicio">
+          <img src="../img/logo-mcdv.png" alt="MCDV & Asociados" width="272" height="284" />
+        </a>
+
+        <a href="../" class="header-name" aria-label="Dr. Pablo Luis Crespo - Inicio">
+          <span class="header-name-dr">Dr.</span>
+          Pablo Luis Crespo
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" data-menu-toggle>
+          <span class="menu-label">Menu</span>
+          <span class="menu-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MENU -->
+    <div class="menu-overlay" data-menu>
+      <div class="menu-overlay-bg"></div>
+
+      <div class="menu-panel">
+        <div class="menu-panel-top">
+          <span>Índice</span>
+          <button class="menu-close" type="button" aria-label="Cerrar menú" data-menu-close>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <nav class="menu-navigation" aria-label="Navegación principal">
+          <a href="../" data-menu-link><span class="menu-link-text">Inicio</span></a>
+          <a href="../#profesional" data-menu-link><span class="menu-link-text">Sobre mí</span></a>
+          <a href="../#servicios" data-menu-link><span class="menu-link-text">Servicios</span></a>
+          <a href="../ciudadania-italiana/" data-menu-link><span class="menu-link-text">Ciudadanía Italiana</span></a>
+          <a href="../amparos-de-salud/" data-menu-link><span class="menu-link-text">Amparos de Salud</span></a>
+          <a href="../#about" data-menu-link><span class="menu-link-text">Método de trabajo</span></a>
+          <a href="../#contact" data-menu-link><span class="menu-link-text">Contacto</span></a>
+        </nav>
+
+        <div class="menu-panel-bottom">
+          <div>
+            <span class="menu-small-label">Atención</span>
+            <span>Lunes a Viernes · 09 — 18 hs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <!-- ENCABEZADO -->
+      <section class="page-hero page-hero--compact">
+        <div class="container page-hero-copy">
+          <nav class="breadcrumb" aria-label="Ruta de navegación">
+            <a href="../">Inicio</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Agendar consulta</span>
+          </nav>
+
+          <h1>Agendar consulta</h1>
+
+          <p class="page-lead">
+            Elegí día y horario, pagá con Mercado Pago y mandá el comprobante
+            por WhatsApp. Lunes a viernes, de 9 a 16 hs.
+          </p>
+        </div>
+      </section>
+
+      <!-- AGENDA -->
+      <section class="section agenda">
+        <div class="container agenda-layout">
+          <form class="agenda-form" data-agenda novalidate>
+            <p class="agenda-demo" data-agenda-demo hidden>
+              Vista previa: todavía no está cargado el link de pago.
+            </p>
+
+            <fieldset class="agenda-step">
+              <legend>Modalidad</legend>
+
+              <div class="agenda-options">
+                <label class="agenda-option">
+                  <input type="radio" name="modalidad" value="virtual" required />
+                  <span class="agenda-option-title">Virtual</span>
+                  <span class="agenda-option-text">Videollamada, desde cualquier lugar.</span>
+                </label>
+
+                <label class="agenda-option">
+                  <input type="radio" name="modalidad" value="presencial" />
+                  <span class="agenda-option-title">Presencial</span>
+                  <span class="agenda-option-text">Av. Corrientes 1464, Of. 302, CABA.</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="agenda-step">
+              <legend>Día y horario</legend>
+
+              <p class="agenda-hint">Hora de Argentina (GMT−3).</p>
+
+              <div class="agenda-calendar">
+                <div class="agenda-calendar-head">
+                  <button type="button" class="agenda-nav" data-agenda-prev aria-label="Mes anterior">‹</button>
+                  <span class="agenda-month" data-agenda-month aria-live="polite"></span>
+                  <button type="button" class="agenda-nav" data-agenda-next aria-label="Mes siguiente">›</button>
+                </div>
+
+                <div class="agenda-weekdays" aria-hidden="true">
+                  <span>Lu</span><span>Ma</span><span>Mi</span><span>Ju</span><span>Vi</span><span>Sá</span><span>Do</span>
+                </div>
+
+                <div class="agenda-days" data-agenda-days></div>
+              </div>
+
+              <div class="agenda-times" data-agenda-times aria-live="polite"></div>
+            </fieldset>
+
+            <fieldset class="agenda-step">
+              <legend>Tus datos</legend>
+
+              <div class="agenda-fields">
+                <label class="agenda-field-wide">
+                  <span>Nombre y apellido</span>
+                  <input type="text" name="nombre" autocomplete="name" required maxlength="120" />
+                </label>
+
+                <label class="agenda-field-wide">
+                  <span>Contanos brevemente tu consulta</span>
+                  <textarea name="consulta" rows="4" required maxlength="1000"></textarea>
+                </label>
+              </div>
+            </fieldset>
+
+            <p class="agenda-error" data-agenda-error role="alert" hidden></p>
+
+            <button type="submit" class="dark-button agenda-submit">
+              <span>Continuar</span>
+              <span>→</span>
+            </button>
+          </form>
+
+          <aside class="agenda-summary" aria-label="Resumen del turno">
+            <h2>Tu turno</h2>
+
+            <dl>
+              <div><dt>Modalidad</dt><dd data-resumen="modalidad">—</dd></div>
+              <div><dt>Día</dt><dd data-resumen="dia">—</dd></div>
+              <div><dt>Horario</dt><dd data-resumen="hora">—</dd></div>
+              <div><dt>Consulta</dt><dd data-resumen="precio">—</dd></div>
+            </dl>
+          </aside>
+
+          <!-- CONFIRMAR: primero se lee, después se abre Mercado Pago -->
+          <div class="agenda-done" data-agenda-done hidden tabindex="-1">
+            <h2>Confirmá tu turno</h2>
+            <p class="agenda-done-turno" data-agenda-done-text></p>
+
+            <ol class="agenda-pasos">
+              <li class="agenda-paso is-active" data-paso="pago">
+                <span class="agenda-paso-num" aria-hidden="true">1</span>
+                <div>
+                  <h3>Pagá la consulta</h3>
+                  <p class="agenda-pestana">
+                    <strong>Atención:</strong> Mercado Pago se abre en otra
+                    pestaña. Cuando termines de pagar, volvé a esta.
+                  </p>
+                  <a href="#" class="mp-button" data-agenda-pago target="_blank" rel="noopener">
+                    Pagar con
+                    <img src="../img/logo-mercadopago.png" alt="Mercado Pago" width="142" height="37" />
+                  </a>
+                </div>
+              </li>
+
+              <li class="agenda-paso" data-paso="whatsapp">
+                <span class="agenda-paso-num" aria-hidden="true">2</span>
+                <div>
+                  <h3>Mandá el comprobante</h3>
+                  <p>Tocá el botón y adjuntá la captura del pago en el chat.</p>
+                  <a href="#" class="wa-button" data-agenda-whatsapp target="_blank" rel="noopener" aria-disabled="true">
+                    <img src="../img/wsp.png" alt="" width="22" height="22" />
+                    Enviar por WhatsApp
+                  </a>
+                  <p class="agenda-error" data-agenda-wa-error role="alert" hidden>Primero pagá la consulta (paso 1).</p>
+                </div>
+              </li>
+            </ol>
+
+            <p class="agenda-done-small">
+              El Dr. verifica cada pago antes de confirmar el turno.
+              <button type="button" class="agenda-volver" data-agenda-volver>Cambiar día u horario</button>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer-main">
+        <div class="footer-brand">
+          <span class="footer-name"> Dr. Pablo Luis Crespo </span>
+          <span class="footer-role">Abogado · Derecho Penal y de Familia</span>
+          <span class="footer-phone">
+            <a href="tel:+5492804607019">Llamar al estudio</a>
+            · Lunes a Viernes, 9 a 18 hs
+          </span>
+        </div>
+      </div>
+
+      <div class="container footer-contact">
+        <div class="footer-address">
+          <span class="footer-address-city">San Isidro</span>
+          <a href="https://maps.google.com/?q=Ituzaing%C3%B3+522+San+Isidro+Buenos+Aires" target="_blank" rel="noopener" class="footer-map-link">Ituzaingó 522</a>
+        </div>
+
+        <div class="footer-address">
+          <span class="footer-address-city">CABA</span>
+          <a href="https://maps.google.com/?q=Av.+Corrientes+1464+Of.+302+Buenos+Aires" target="_blank" rel="noopener" class="footer-map-link">Av. Corrientes 1464, Of. 302</a>
+        </div>
+
+        <div class="footer-address">
+          <span class="footer-address-city">Trelew, Chubut</span>
+          <a href="https://maps.google.com/?q=La+Madrid+1190+Trelew+Chubut" target="_blank" rel="noopener" class="footer-map-link">La Madrid 1190</a>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <span class="footer-studio">
+          Desarrollo y Diseño Web por
+          <a href="https://wa.me/5492804713889?text=Hola%20Juli%C3%A1n%2C%20me%20interesa%20discutir%20un%20proyecto%20web." target="_blank" rel="noopener" class="footer-studio-link">Julián Luchelli Fassa</a>
+        </span>
+      </div>
+    </footer>
+
+    <!-- WHATSAPP FLOTANTE -->
+    <a href="#" id="waFloat" class="wa-float" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+      <img src="../img/wsp.png" alt="WhatsApp" class="wa-icon" width="52" height="52" />
+    </a>
+
+    <script src="../script.js?v=20261008d" defer></script>
+    <script src="../agenda.js?v=20261008d" defer></script>
+  </body>
+</html>

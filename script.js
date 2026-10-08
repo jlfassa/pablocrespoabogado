@@ -26,13 +26,13 @@ const menuLinks = document.querySelectorAll("[data-menu-link]");
    disponible. Antes corría siempre, en paralelo con el
    reveal de ScrollTrigger, y la clase "js-reveal" (con su
    propio "transition") terminaba pisando la transición propia
-   de .area-card y .service-panel al tener la misma
+   de las tarjetas al tener la misma
    especificidad y estar declarada después en el CSS — por eso
    el hover se sentía instantáneo/roto en tarjetas y acordeón.
 ========================================================= */
 if (!hasGsap) {
   const revealTargets = document.querySelectorAll(
-    ".professional-content, .section-heading, .about-title, .about-content, .contact-intro, .statement h2, .statement p, .area-card, .service-panel"
+    ".professional-content, .section-heading, .about-title, .about-content, .contact-intro, .citizenship-intro, .citizenship-logo, .citizenship-grid, .service-card"
   );
 
   revealTargets.forEach(element => element.classList.add("js-reveal"));
@@ -382,6 +382,29 @@ function animateSlideIn(slide) {
 }
 
 
+/* Indicadores: marcan el slide activo y reinician la barra
+   de progreso (quitar + reflow + poner la clase). */
+const heroDots = document.querySelectorAll("[data-hero-dot]");
+
+function setActiveDot(index) {
+  heroDots.forEach((dot, i) => {
+    dot.classList.remove("is-active");
+    dot.removeAttribute("aria-current");
+
+    if (i === index) {
+      void dot.offsetWidth;
+      dot.classList.add("is-active");
+      dot.setAttribute("aria-current", "true");
+    }
+  });
+}
+
+document.documentElement.style.setProperty(
+  "--hero-interval",
+  HERO_INTERVAL_MS + "ms"
+);
+
+
 function changeSlide(nextIndex) {
   if (
     isAnimatingSlide ||
@@ -390,6 +413,8 @@ function changeSlide(nextIndex) {
   ) {
     return;
   }
+
+  setActiveDot(nextIndex);
 
   const oldSlideFallback = heroSlides[currentSlide];
   const newSlideFallback = heroSlides[nextIndex];
@@ -505,6 +530,18 @@ if (heroSlides.length) {
 }
 
 
+heroDots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    if (index === currentSlide || isAnimatingSlide) return;
+
+    changeSlide(index);
+
+    // El usuario eligió un slide: el conteo arranca de cero
+    startHeroTimer();
+  });
+});
+
+
 /* =========================================================
    PAUSAR HERO CUANDO LA PESTAÑA NO ESTÁ VISIBLE
 ========================================================= */
@@ -611,12 +648,43 @@ if (
 
 
   /* -------------------------------------------------------
+     PARALLAX FOTO "SOBRE MÍ"
+     La imagen se desplaza suave dentro de su marco al
+     scrollear (la escala extra evita que se vean bordes).
+  ------------------------------------------------------- */
+
+  const professionalImage = document.querySelector(".professional-image img");
+
+  if (professionalImage) {
+    gsap.fromTo(
+      professionalImage,
+      {
+        yPercent: -6,
+        scale: 1.14
+      },
+      {
+        yPercent: 6,
+        scale: 1.14,
+        ease: "none",
+
+        scrollTrigger: {
+          trigger: ".professional-image",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      }
+    );
+  }
+
+
+  /* -------------------------------------------------------
      REVEAL DE SECCIONES
   ------------------------------------------------------- */
 
   gsap.utils
     .toArray(
-      ".professional-content, .section-heading, .about-title, .about-content, .contact-intro, .statement h2, .statement p"
+      ".professional-content, .section-heading, .about-title, .about-content, .contact-intro, .citizenship-intro, .citizenship-logo, .citizenship-grid"
     )
     .forEach(element => {
 
@@ -648,7 +716,7 @@ if (
   ------------------------------------------------------- */
 
   gsap.utils
-    .toArray(".area-card")
+    .toArray(".service-card")
     .forEach((card, index) => {
 
       gsap.fromTo(
@@ -675,117 +743,10 @@ if (
     });
 
 
-  /* -------------------------------------------------------
-     SERVICE PANELS
-  ------------------------------------------------------- */
-
-  gsap.utils
-    .toArray(".service-panel")
-    .forEach(panel => {
-
-      gsap.fromTo(
-        panel,
-        {
-          y: 35,
-          opacity: 0
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power3.out",
-
-          clearProps: "opacity,transform",
-
-          scrollTrigger: {
-            trigger: panel,
-            start: "top 88%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
-
-    });
-
-
   window.addEventListener("load", () => {
     ScrollTrigger.refresh();
   });
 }
-
-
-/* =========================================================
-   SERVICIOS — ACORDEÓN
-========================================================= */
-
-const servicePanels = document.querySelectorAll(
-  "[data-service-trigger]"
-);
-
-servicePanels.forEach(button => {
-
-  button.addEventListener("click", () => {
-
-    const panel = button.closest(".service-panel");
-
-    if (!panel) return;
-
-    const isOpen = panel.classList.contains("is-active");
-
-
-    servicePanels.forEach(otherButton => {
-
-      const otherPanel =
-        otherButton.closest(".service-panel");
-
-      if (!otherPanel) return;
-
-      otherPanel.classList.remove("is-active");
-
-      otherButton.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-    });
-
-
-    if (!isOpen) {
-
-      panel.classList.add("is-active");
-
-      button.setAttribute(
-        "aria-expanded",
-        "true"
-      );
-
-    }
-
-  });
-
-});
-
-
-/* Todas las tarjetas cerradas desde el primer acceso.
-   Asegura el estado inicial sin depender del HTML. */
-document.addEventListener("DOMContentLoaded", () => {
-
-  servicePanels.forEach(button => {
-
-    const panel = button.closest(".service-panel");
-
-    if (!panel) return;
-
-    panel.classList.remove("is-active");
-
-    button.setAttribute(
-      "aria-expanded",
-      "false"
-    );
-
-  });
-
-});
 
 
 /* =========================================================
@@ -798,14 +759,17 @@ const defaultMessage =
   "Hola Dr. Crespo, quisiera hacer una consulta.";
 
 
+// En el celular wa.me abre la app. En la compu abre WhatsApp Web
+// directo: wa.me ahí dispara el cartel "¿Abrir la aplicación?"
+const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+
 function waLink(message) {
 
-  return (
-    "https://wa.me/" +
-    WA_NUMBER +
-    "?text=" +
-    encodeURIComponent(message)
-  );
+  const text = encodeURIComponent(message);
+
+  return isMobile
+    ? "https://wa.me/" + WA_NUMBER + "?text=" + text
+    : "https://web.whatsapp.com/send?phone=" + WA_NUMBER + "&text=" + text;
 
 }
 
@@ -819,149 +783,6 @@ function waLink(message) {
   element.href = waLink(defaultMessage);
 
 });
-
-
-/* =========================================================
-   FORMULARIO
-========================================================= */
-
-const contactForm =
-  document.getElementById("contactForm");
-
-const formConfirm =
-  document.getElementById("formConfirm");
-
-
-if (contactForm) {
-
-  contactForm.addEventListener("submit", event => {
-
-    event.preventDefault();
-
-
-    const nombreInput =
-      document.getElementById("nombre");
-
-    const emailInput =
-      document.getElementById("email");
-
-    const mensajeInput =
-      document.getElementById("mensaje");
-
-
-    const nombre =
-      nombreInput?.value.trim() || "";
-
-    const email =
-      emailInput?.value.trim() || "";
-
-    const telefono =
-      document.getElementById("telefono")
-        ?.value.trim() ||
-      "No brindó teléfono";
-
-    const mensaje =
-      mensajeInput?.value.trim() || "";
-
-
-    /* -----------------------------------------------------
-       VALIDACIÓN
-    ----------------------------------------------------- */
-
-    let valid = true;
-
-
-    [
-      [nombreInput, nombre],
-      [mensajeInput, mensaje]
-    ].forEach(([input, value]) => {
-
-      if (!input) return;
-
-      const invalid = !value;
-
-      input.classList.toggle(
-        "is-invalid",
-        invalid
-      );
-
-      if (invalid) {
-        valid = false;
-      }
-
-    });
-
-
-    if (emailInput) {
-
-      const emailOk =
-        !email ||
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-      emailInput.classList.toggle(
-        "is-invalid",
-        !emailOk
-      );
-
-      if (!emailOk) {
-        valid = false;
-      }
-
-    }
-
-
-    if (!valid) return;
-
-
-    /* -----------------------------------------------------
-       MENSAJE WHATSAPP
-    ----------------------------------------------------- */
-
-    const text =
-      "Hola Dr. Crespo, soy " +
-      nombre +
-      ". Mi email es " +
-      (email || "no brindó email") +
-      ". Teléfono: " +
-      telefono +
-      ". Consulta: " +
-      mensaje;
-
-
-    formConfirm?.classList.add("show");
-
-
-    window.open(
-      waLink(text),
-      "_blank",
-      "noopener"
-    );
-
-
-    contactForm.reset();
-
-  });
-
-
-  /* -------------------------------------------------------
-     QUITAR ERROR AL ESCRIBIR
-  ------------------------------------------------------- */
-
-  contactForm
-    .querySelectorAll("input, textarea")
-    .forEach(field => {
-
-      field.addEventListener("input", () => {
-
-        field.classList.remove(
-          "is-invalid"
-        );
-
-      });
-
-    });
-
-}
 
 
 /* =========================================================
