@@ -34,15 +34,33 @@ if (!hasGsap) {
   }
 }
 
-window.addEventListener("load", () => {
+(() => {
   const preloader = document.querySelector("[data-preloader]");
 
   if (!preloader) return;
 
-  setTimeout(() => {
-    preloader.classList.add("loaded");
-  }, 1600);
-});
+  const start = performance.now();
+  let done = false;
+
+  const hide = () => {
+    if (done) return;
+    done = true;
+    const wait = Math.max(0, 900 - (performance.now() - start));
+    setTimeout(() => preloader.classList.add("loaded"), wait);
+  };
+
+  const heroImg = document.querySelector(".hero-slide.is-active .hero-image");
+
+  if (heroImg && !heroImg.complete) {
+    heroImg.addEventListener("load", hide, { once: true });
+    heroImg.addEventListener("error", hide, { once: true });
+  } else {
+    hide();
+  }
+
+  window.addEventListener("load", hide, { once: true });
+  setTimeout(hide, 2500);
+})();
 
 function updateHeader() {
   if (!header) return;
