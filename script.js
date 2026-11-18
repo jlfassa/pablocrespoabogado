@@ -14,7 +14,7 @@ const menuLinks = document.querySelectorAll("[data-menu-link]");
 
 if (!hasGsap) {
   const revealTargets = document.querySelectorAll(
-    ".professional-content, .section-heading, .about-title, .about-content, .contact-intro, .citizenship-intro, .citizenship-logo, .citizenship-grid, .service-card"
+    ".professional-content, .section-heading, .about-title, .about-content, .contact-intro, .reviews-head, .reviews-layout, .citizenship-intro, .citizenship-logo, .citizenship-grid, .service-card"
   );
 
   revealTargets.forEach(element => element.classList.add("js-reveal"));
@@ -595,7 +595,7 @@ if (
 
   gsap.utils
     .toArray(
-      ".professional-content, .section-heading, .about-title, .about-content, .contact-intro, .citizenship-intro, .citizenship-logo, .citizenship-grid"
+      ".professional-content, .section-heading, .about-title, .about-content, .contact-intro, .reviews-head, .reviews-layout, .citizenship-intro, .citizenship-logo, .citizenship-grid"
     )
     .forEach(element => {
 
